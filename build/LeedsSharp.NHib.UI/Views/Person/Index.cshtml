@@ -1,0 +1,77 @@
+﻿@model Models.PersonPageViewModel
+
+@if (Model.LastPersonCreated != null)
+{
+	<div class="panel panel-info">
+		<div class="panel-heading">Last person saved</div>
+		<div class="panel-body">
+
+			<h3>@Model.LastPersonCreated.LastName, @Model.LastPersonCreated.FirstName</h3>
+			<p>
+				<b>Assigned servers:</b>
+
+				@if (Model.LastPersonCreated.PermittedServers.Any())
+				{
+					@String.Join(", ", Model.LastPersonCreated.PermittedServers.Select(x => x.Name))
+				}
+				else
+				{
+					@:None
+				}
+			</p>
+
+		</div>
+	</div>
+}
+
+<div class="panel panel-info">
+	<div class="panel-heading">All persons <a href="@Url.Action("Add")" class="btn btn-default btn-xs pull-right"><i class="fa fa-flash"></i> new</a></div>
+	<div class="panel-body">
+
+		@if (Model.AllPersons.Any())
+		{
+			<table class="table table-striped">
+				<tr>
+					<th>User</th>
+					<th>Assigned servers</th>
+					<th></th>
+				</tr>
+
+				@foreach (var person in Model.AllPersons)
+				{
+					<tr>
+						<td>
+							@person.LastName, @person.FirstName
+					
+							<br />
+
+							<b>Saved: </b> @((person.LastUpdated ?? person.DateCreated).ToLocalTime().ToString("G"))
+						</td>
+						<td>
+							@if (person.PermittedServers.Any())
+							{
+								@String.Join(", ", person.PermittedServers.Select(x => x.Name))
+							}
+							else
+							{
+								@:None
+							}
+						</td>
+						<td style="text-align:right">
+							<a href="@Url.Action("Edit", new { id = person.Id })" class="btn btn-default btn-xs"><i class="fa fa-pencil"></i> edit</a>
+							<a href="@Url.Action("Delete", new { id = person.Id })" class="btn btn-default btn-xs"><i class="fa fa-remove"></i> delete</a>
+						</td>
+					</tr>
+				}
+
+			</table>
+
+		}
+		else
+		{
+			<p>No persons exist yet</p>
+		}
+
+	</div>
+</div>
+

@@ -1,0 +1,61 @@
+﻿@model Models.EditPersonFormModel
+
+<h2>Edit - @Model.FirstName @Model.LastName</h2>
+
+@using (Html.BeginForm("Edit", "Person", FormMethod.Post, new { @class = "form-horizontal" }))
+{
+	<div class="form-group">
+		@Html.LabelFor(x => x.FirstName, new { @class = "col-sm-3 control-label" })
+		<div class="col-sm-4">
+			@Html.TextBoxFor(x => x.FirstName, new { @class = "form-control" })
+		</div>
+	</div>
+
+	<div class="form-group">
+		@Html.LabelFor(x => x.LastName, new { @class = "col-sm-3 control-label" })
+		<div class="col-sm-4">
+			@Html.TextBoxFor(x => x.LastName, new { @class = "form-control" })
+		</div>
+	</div>
+
+	<div class="form-group">
+		@Html.LabelFor(x => x.Line1, new { @class = "col-sm-3 control-label" })
+		<div class="col-sm-4">
+			@Html.TextBoxFor(x => x.Line1, new { @class = "form-control" })
+		</div>
+	</div>
+
+	<div class="form-group">
+		@Html.LabelFor(x => x.Line2, new { @class = "col-sm-3 control-label" })
+		<div class="col-sm-4">
+			@Html.TextBoxFor(x => x.Line2, new { @class = "form-control" })
+		</div>
+	</div>
+
+	<div class="form-group">
+		@Html.LabelFor(x => x.TownCity, new { @class = "col-sm-3 control-label" })
+		<div class="col-sm-4">
+			@Html.TextBoxFor(x => x.TownCity, new { @class = "form-control" })
+		</div>
+	</div>
+
+	<div class="form-group">
+		@Html.LabelFor(x => x.County, new { @class = "col-sm-3 control-label" })
+		<div class="col-sm-4">
+			@Html.TextBoxFor(x => x.County, new { @class = "form-control" })
+		</div>
+	</div>
+
+	<div class="form-group">
+		@Html.LabelFor(x => x.PostCode, new { @class = "col-sm-3 control-label" })
+		<div class="col-sm-4">
+			@Html.TextBoxFor(x => x.PostCode, new { @class = "form-control" })
+		</div>
+	</div>
+
+	<div class="form-group">
+		<div class="col-sm-offset-3 col-sm-4">
+			<button type="submit" class="btn btn-default">Save</button>
+		</div>
+	</div>
+}

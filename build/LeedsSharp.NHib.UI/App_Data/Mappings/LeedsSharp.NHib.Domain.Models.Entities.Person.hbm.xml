@@ -1,0 +1,52 @@
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" default-cascade="all">
+  <class xmlns="urn:nhibernate-mapping-2.2" name="LeedsSharp.NHib.Domain.Models.Entities.Person, LeedsSharp.NHib.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" table="`Person`">
+    <id name="Id" type="System.Guid, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+      <column name="Id" />
+      <generator class="guid.comb" />
+    </id>
+    <set inverse="true" name="LoginHistory">
+      <key>
+        <column name="PersonId" />
+      </key>
+      <one-to-many class="LeedsSharp.NHib.Domain.Models.Entities.Login, LeedsSharp.NHib.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+    </set>
+    <bag inverse="true" name="PermittedServers" table="PersonsToServers">
+      <key>
+        <column name="PersonId" />
+        <column name="PersonId" />
+      </key>
+      <many-to-many class="LeedsSharp.NHib.Domain.Models.Entities.Server, LeedsSharp.NHib.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+        <column name="ServerId" />
+      </many-to-many>
+    </bag>
+    <property name="FirstName" type="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+      <column name="FirstName" length="250" />
+    </property>
+    <property name="LastName" type="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+      <column name="LastName" length="250" />
+    </property>
+    <property name="DateCreated" type="NHibernate.Type.UtcDateTimeType, NHibernate, Version=4.1.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4">
+      <column name="DateCreated" length="250" />
+    </property>
+    <property name="LastUpdated" type="NHibernate.Type.UtcDateTimeType, NHibernate, Version=4.1.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4">
+      <column name="LastUpdated" length="250" />
+    </property>
+    <component name="Address" class="LeedsSharp.NHib.Domain.Models.ValueTypes.Address, LeedsSharp.NHib.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <property name="Line1" type="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+        <column name="AddressLine1" length="250" />
+      </property>
+      <property name="Line2" type="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+        <column name="AddressLine2" length="250" />
+      </property>
+      <property name="TownCity" type="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+        <column name="TownCity" length="250" />
+      </property>
+      <property name="County" type="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+        <column name="County" length="250" />
+      </property>
+      <property name="PostCode" type="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+        <column name="PostCode" length="250" />
+      </property>
+    </component>
+  </class>
+</hibernate-mapping>

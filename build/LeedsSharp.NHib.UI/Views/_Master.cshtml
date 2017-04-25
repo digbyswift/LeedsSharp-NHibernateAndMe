@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>LeedsSharp - NHibernate & Me</title>
+	
+	<link rel="stylesheet" href="/content/css/font-awesome.min.css">
+	<link rel="stylesheet" href="/content/css/bootstrap.min.css">
+
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+	<div class="container">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="/">Leeds# - NHibernate & Me</a>
+		</div>
+		<div id="navbar" class="collapse navbar-collapse">
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="@Url.Action("Add", "Person")">Add person</a></li>
+				<li><a href="@Url.Action("Futures", "Person")">Futures</a></li>
+			</ul>
+		</div><!--/.nav-collapse -->
+	</div>
+</nav>
+
+<div class="container">
+	
+	@{
+		var statusAlert = TempData["StatusAlert"] as string;
+		if (statusAlert != null)
+		{
+			<div class="alert alert-success">@statusAlert</div>
+		}
+	}
+
+	@RenderBody()
+</div>
+
+
+<script src="/content/js/jquery.min.js"></script>
+<script src="/content/js/bootstrap.min.js"></script>
+	
+<script>
+	$(function() {
+		$('.alert').delay(1000).fadeOut(500);
+	});
+</script>
+</body>
+</html>

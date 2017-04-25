@@ -1,0 +1,26 @@
+﻿@model Models.FuturesPageViewModel
+
+<h2>Futures</h2>
+
+<div class="panel panel-info">
+	<div class="panel-heading">Stats</div>
+	<div class="panel-body">
+
+		<table class="table table-striped">
+			<tr>
+				<th>Person count</th>
+				<td>@Model.PersonCount</td>
+			</tr>
+			<tr>
+				<th>Last edit</th>
+				<td>@Model.LastEdit.ToLocalTime().ToString("G")</td>
+			</tr>
+			<tr>
+				<th>Last servers assigned</th>
+				<td>@String.Join(", ", Model.LastAssignedServer)</td>
+			</tr>
+		</table>
+
+	</div>
+</div>
+

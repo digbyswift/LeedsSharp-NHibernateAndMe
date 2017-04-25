@@ -1,0 +1,17 @@
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" default-cascade="all">
+  <class xmlns="urn:nhibernate-mapping-2.2" name="LeedsSharp.NHib.Domain.Models.Entities.Login, LeedsSharp.NHib.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" table="`Login`">
+    <id name="Id" type="System.Guid, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+      <column name="LoginId" />
+      <generator class="guid.comb" />
+    </id>
+    <property name="DateLogged" type="NHibernate.Type.UtcDateTimeType, NHibernate, Version=4.1.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4">
+      <column name="DateLoggedIn" length="250" />
+    </property>
+    <property name="Ip" type="LeedsSharp.NHib.Domain.NHib.UserTypes.IpUserType, LeedsSharp.NHib.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <column name="Ip" length="250" />
+    </property>
+    <many-to-one class="LeedsSharp.NHib.Domain.Models.Entities.Person, LeedsSharp.NHib.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Person">
+      <column name="PersonId" />
+    </many-to-one>
+  </class>
+</hibernate-mapping>
