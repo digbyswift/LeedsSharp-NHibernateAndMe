@@ -3,7 +3,7 @@ using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using NHibernate.Cfg;
 
-namespace FYI.BriefingPortal.UI.NHibernate
+namespace LeedsSharp.NHib.UI.NHibernate
 {
     public static class ConfigHelper
     {

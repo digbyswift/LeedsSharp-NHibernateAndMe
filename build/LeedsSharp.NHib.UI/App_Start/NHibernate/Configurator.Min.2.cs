@@ -5,7 +5,6 @@ using System.Web.Hosting;
 using FluentNHibernate.Automapping;
 using FluentNHibernate.Cfg;
 using FluentNHibernate.Cfg.Db;
-using FYI.BriefingPortal.UI.NHibernate;
 using LeedsSharp.NHib.Domain.Models.Entities;
 using LeedsSharp.NHib.Domain.NHib.Mapping;
 using NHibernate;

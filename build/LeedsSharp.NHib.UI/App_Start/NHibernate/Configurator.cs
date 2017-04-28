@@ -6,7 +6,6 @@ using FluentNHibernate.Automapping;
 using FluentNHibernate.Cfg;
 using FluentNHibernate.Cfg.Db;
 using FluentNHibernate.Conventions.Helpers;
-using FYI.BriefingPortal.UI.NHibernate;
 using LeedsSharp.NHib.Domain.Models.Entities;
 using LeedsSharp.NHib.Domain.NHib.Events;
 using LeedsSharp.NHib.Domain.NHib.Mapping;
